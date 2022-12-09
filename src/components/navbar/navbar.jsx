@@ -6,10 +6,10 @@ function Navbar() {
             <nav className={styles["nav-container"]}>
                 <ul className={styles["navbar"]}>
                     <li className={styles["nav-item"]}>
-                        <a href="https://evolvan.com/tools/"> Back to Evolvan Tools</a>
+                        <a href="https://evolvan.com/tools/">Evolvan Tools</a>
                     </li>
                 </ul>
-                <h1>Blob Generator Tool</h1>
+                <h1>Blob Creator Tool</h1>
             </nav>
 
             {/* <div id={styles["nav-img"]}></div> */}
