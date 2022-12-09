@@ -1,0 +1,75 @@
+/* Main layout */
+#main-layout {
+    /* margin-top: 2rem; */
+    display: grid;
+    place-items: center;
+    /* position: relative;
+    top: -300px; */
+}
+
+#preview{
+    background-color: rgb(240, 240, 240);
+}
+
+#preview svg {
+    background-color: transparent;
+    display: block;
+    width: 90%;
+    max-width: 30rem;
+    height: 20rem;
+    border: 0.125rem;
+    border-color: #b4b4b4;
+    border-style: dashed;
+    margin: auto;
+    margin-bottom: 20px;
+    z-index: -1;
+}
+
+.canvasOptions {
+    margin-top: 0.3125rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0.9375rem;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.primaryBtn{
+    background-color: #19003a;
+    border-radius: 25px;
+    color: white;
+    padding: 0.625rem ;
+    border: 0px;
+    font-weight: 900;
+}
+
+.colorPicker {
+    padding: 1.25rem;
+}
+
+.selectors-list{
+    display: grid;
+    place-content: center;
+}
+
+.selectors-list li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(223, 223, 223);
+    margin: 10px;
+    padding: 0.9375rem;
+    border-radius: 15px;
+}
+
+.selectors-list li input{
+    width: 20vw;
+    color: pink;
+}
+
+@media screen and (max-width: 867px) {
+    .selectors-list li input {
+        width: 30vw;
+    }
+}
