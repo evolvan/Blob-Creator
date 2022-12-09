@@ -12,6 +12,7 @@ function Navbar() {
                 <h1>Blob Creator Tool</h1>
             </nav>
 
+
             {/* <div id={styles["nav-img"]}></div> */}
         </header>
     )
