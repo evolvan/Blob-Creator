@@ -86,10 +86,9 @@ function Canvas() {
         fileDownload(SVG, 'blob.svg')
     }
 
-    const bgColor = `linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6))`
-
     return (
         <>
+            <div className={styles["bg-container"]}></div>
             <main id={styles["main-layout"]} >
                 <PreviewBox color={color} shape={svgState.shape} />
 

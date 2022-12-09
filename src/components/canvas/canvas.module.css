@@ -1,13 +1,23 @@
 /* Main layout */
-#main-layout {
-    /* margin-top: 2rem; */
-    display: grid;
-    place-items: center;
-    /* position: relative;
-    top: -300px; */
+.bg-container {
+    background-image: url("/src/assets/main-bg.png");
+    background-size: cover;
+    background-position: center center;
+    filter: blur(2px);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-#preview{
+#main-layout {
+    display: grid;
+    place-items: center;
+}
+
+#preview {
     background-color: rgb(240, 240, 240);
 }
 
@@ -33,7 +43,6 @@
     width: 70vw;
     padding: 0.9375rem;
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
 }
 
 .colorPicker {
@@ -60,22 +69,29 @@
     border-radius: 15px;
 }
 
-.selectors-list li input{
+.selectors-list li input {
     width: 20vw;
 }
 
-.primaryBtn{
+.primaryBtn {
     background-color: #19003a;
     border-radius: 25px;
     margin: 5px 0.5625rem;
     color: white;
-    padding: 0.625rem 1.625rem ;
+    padding: 0.625rem 1.625rem;
     border: 0px;
     font-weight: 900;
 }
 
-@media screen and (max-width: 867px) {
+.bgSvg {
+    z-index: -1;
+    position: fixed;
+    top: 50px;
+    left: 65px;
+}
+
+@media screen and (max-width: 768px) {
     .selectors-list li input {
-        width: 30vw;
+        width: 35vw;
     }
 }
