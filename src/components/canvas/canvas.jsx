@@ -86,35 +86,41 @@ function Canvas() {
         fileDownload(SVG, 'blob.svg')
     }
 
+    const bgColor = `linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6))`
 
     return (
         <>
-            <main id={styles["main-layout"]}>
+            <main id={styles["main-layout"]} >
                 <PreviewBox color={color} shape={svgState.shape} />
-
-                <div className={styles["buttons"]}>
-                    <button type="button" className={styles["primaryBtn"]} onClick={dataHandler}>Randomize</button>
-                    <button type="button" className={styles["primaryBtn"]} onClick={downloadHandler}>Download</button>
-                </div>
 
                 <div className={styles["canvasOptions"]}>
                     <div>
                         <div className={styles["colorPicker"]}>
-                        <HexColorPicker color={color} onChange={setColor} />
+                            <HexColorPicker className={styles["colorBox"]} color={color} onChange={setColor} />
                         </div>
                     </div>
 
-                    <div className={styles["selectors-list"]}>
-                        <ul>
-                            <li className={styles["selectors"]}>
-                                <span><TbVectorTriangle /></span>
-                                <input type="range" name="" id="color" min={3} max={8} defaultValue={3} onChange={complexityHandler} />
-                                <span><TbOctagon /></span>
+                    <div>
+                        <ul className={styles["selectors-list"]}>
+                            <li>
+                                <div className={styles["buttons-container"]}>
+                                    <button type="button" className={styles["primaryBtn"]} onClick={dataHandler}>Randomize</button>
+                                    <button type="button" className={styles["primaryBtn"]} onClick={downloadHandler}>Download</button>
+                                </div>
                             </li>
-                            <li className={styles["selectors"]}>
-                                <span>< TbCircle /></span>
-                                <input type="range" name="" id="color" min={1} max={10} defaultValue={1} onChange={contrastHandler} />
-                                <span><GiWaterSplash /></span>
+                            <li>
+                                <div className={styles["box"]}><span><TbVectorTriangle /></span>
+                                    <input type="range" name="" id="color" min={3} max={8} defaultValue={3} onChange={complexityHandler} />
+                                    <span><TbOctagon /></span>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div className={styles["box"]}><span>< TbCircle /></span>
+                                    <input type="range" name="" id="color" min={1} max={10} defaultValue={1} onChange={contrastHandler} />
+                                    <span><GiWaterSplash /></span>
+                                </div>
+
                             </li>
                         </ul>
                     </div>
