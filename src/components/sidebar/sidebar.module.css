@@ -39,22 +39,23 @@
     z-index: 100;
 }
 
-.color-selector{
+.color-selector {
     height: 35px;
     width: 35px;
     background-color: rebeccapurple;
     border-radius: 50px;
 }
 
-.color-picker{
+.color-picker {
     display: flex;
     flex-direction: column;
     padding: 1rem;
 }
 
-.btn-custom{
-    background-color: black;
-    padding: 5px 20px;
+.btn-custom {
+    background-color: #6900ff;
+    padding: 8px 32px;
+    border: 0;
     border-radius: 25px;
     color: white;
 }

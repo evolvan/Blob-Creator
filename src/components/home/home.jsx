@@ -2,8 +2,7 @@ import { useState } from 'react';
 import Canvas from '../canvas/canvas';
 import Navigation from '../navigation/navigation'
 import Sidebar from '../sidebar/sidebar';
-
-
+import styles from './home.module.css'
 
 function Home() {
 
@@ -16,11 +15,9 @@ function Home() {
     return (
         <>
             <Navigation />
-            <div className='contianer-fuild p-0'>
-                <div className='row'>
-                    <div className='col-3'><Sidebar color={color} setColor={setColorHandler}/></div>
-                    <div className='col'><Canvas color={color}/></div>
-                </div>
+            <div className={styles["main-layout"]}>
+                <div className={styles["sidebar"]}><Sidebar color={color} setColor={setColorHandler} /></div>
+                <div className={styles["canvas"]}><Canvas color={color} /></div>
             </div>
         </>
     )

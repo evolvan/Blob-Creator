@@ -1,13 +1,10 @@
-import { HexColorPicker } from "react-colorful";
 import styles from './canvas.module.css'
-import { TbVectorTriangle, TbOctagon, TbCircle } from 'react-icons/tb';
-import { GiWaterSplash } from 'react-icons/gi';
 import { lineRadial, curveBasisClosed } from "d3-shape"
 import { range } from "d3-array"
 import { scaleLinear } from "d3-scale"
 import { useState } from "react"
 import fileDownload from "js-file-download";
-import PreviewBox from "./previewBox";
+
 
 function roundPath(path, precision = 0.1) {
     if (!path) return
@@ -39,7 +36,7 @@ const initialState = {
     shape: roundPath(generateBlobShape(initialData) + "Z"),
 }
 
-function Canvas({color}) {
+function Canvas({ color }) {
 
     const [svgState, setSvgState] = useState(initialState)
 
@@ -88,7 +85,13 @@ function Canvas({color}) {
     return (
         <>
             <main id={styles["main-layout"]} >
-                <PreviewBox color={color} shape={svgState.shape} />
+                <div id={styles["preview"]}>
+                    <svg viewBox="0 0 200 200" >
+                        <path fill={color}
+                            d={svgState.shape}
+                            transform="translate(100 100)" />
+                    </svg>
+                </div>
             </main>
         </>
     )

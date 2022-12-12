@@ -1,8 +1,12 @@
 import { useState } from "react"
+import { TbOctagon, TbCircle, TbTriangle } from 'react-icons/tb';
+import { GiWaterSplash } from 'react-icons/gi';
+import { TfiPaintBucket } from 'react-icons/tfi';
+import { BiCustomize } from 'react-icons/bi';
 import { HexColorPicker } from "react-colorful"
 import styles from './sidebar.module.css'
 
-function Sidebar({color, setColor}) {
+function Sidebar({ color, setColor }) {
 
     const [optionOne, setOptionOne] = useState(true)
     const [optionTwo, setOptionTwo] = useState(false)
@@ -21,7 +25,7 @@ function Sidebar({color, setColor}) {
             <div>
                 <div className={styles["options"]}>
                     <div className={styles["options-toggler"]}>
-                        <a onClick={optionOneHandler}>BLOB FILL</a>
+                        <a onClick={optionOneHandler}><TfiPaintBucket /> BLOB FILL</a>
                         <span>&#x25BC;</span>
                     </div>
                     {optionOne && <div className={styles["options-body"]}>
@@ -57,17 +61,25 @@ function Sidebar({color, setColor}) {
 
                 <div className={styles["options"]}>
                     <div className={styles["options-toggler"]}>
-                        <a onClick={optionTwoHandler}>CUSTOMIZE</a>
+                        <a onClick={optionTwoHandler}><BiCustomize /> CUSTOMIZE</a>
                         <span>&#x25BC;</span>
                     </div>
                     {optionTwo && <div className={styles["options-body"]}>
                         <div>
-                            <label htmlFor="customRange1" class="form-label">Edges:</label>
-                            <input type="range" class="form-range" min={3} max={8} defaultValue={3} />
+                            <label htmlFor="customRange1" className="form-label">Edges:</label>
+                            <div style={{ display: "flex", alignItems: "center" }}>
+                                <span><TbTriangle size={20} /></span>
+                                <input type="range" className="form-range" min={3} max={8} defaultValue={3} />
+                                <span><TbOctagon size={20} /></span>
+                            </div>
                         </div>
                         <div>
-                            <label htmlFor="customRange1" class="form-label">Smoothness:</label>
-                            <input type="range" class="form-range" min={1} max={10} defaultValue={1} />
+                            <label htmlFor="customRange1" className="form-label">Smoothness:</label>
+                            <div style={{ display: "flex", alignItems: "center" }}>
+                                <span><TbCircle size={20} /></span>
+                                <input type="range" className="form-range" min={1} max={10} defaultValue={1} />
+                                <span><GiWaterSplash size={20} /></span>
+                            </div>
                         </div>
                     </div>}
                 </div>
