@@ -39,9 +39,8 @@ const initialState = {
     shape: roundPath(generateBlobShape(initialData) + "Z"),
 }
 
-function Canvas() {
+function Canvas({color}) {
 
-    const [color, setColor] = useState("#4b4f6d")
     const [svgState, setSvgState] = useState(initialState)
 
     const updateContrast = contrast => {
@@ -88,45 +87,9 @@ function Canvas() {
 
     return (
         <>
-            <div className={styles["bg-container"]}></div>
             <main id={styles["main-layout"]} >
                 <PreviewBox color={color} shape={svgState.shape} />
-
-                <div className={styles["canvasOptions"]}>
-                    <div>
-                        <div className={styles["colorPicker"]}>
-                            <HexColorPicker className={styles["colorBox"]} color={color} onChange={setColor} />
-                        </div>
-                    </div>
-
-                    <div>
-                        <ul className={styles["selectors-list"]}>
-                            <li>
-                                <div className={styles["buttons-container"]}>
-                                    <button type="button" className={styles["primaryBtn"]} onClick={dataHandler}>Randomize</button>
-                                    <button type="button" className={styles["primaryBtn"]} onClick={downloadHandler}>Download</button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className={styles["box"]}><span><TbVectorTriangle /></span>
-                                    <input type="range" name="" id="color" min={3} max={8} defaultValue={3} onChange={complexityHandler} />
-                                    <span><TbOctagon /></span>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div className={styles["box"]}><span>< TbCircle /></span>
-                                    <input type="range" name="" id="color" min={1} max={10} defaultValue={1} onChange={contrastHandler} />
-                                    <span><GiWaterSplash /></span>
-                                </div>
-
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
             </main>
-
         </>
     )
 }
