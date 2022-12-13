@@ -44,6 +44,7 @@
     width: 35px;
     background-color: rebeccapurple;
     border-radius: 50px;
+    margin: 0 5px;
 }
 
 .color-picker {
@@ -55,7 +56,9 @@
 .btn-custom {
     background-color: #6900ff;
     padding: 8px 32px;
+    margin: 5px 0;
     border: 0;
     border-radius: 25px;
     color: white;
+    box-shadow: 0 0 5px 1px #7d659e;
 }

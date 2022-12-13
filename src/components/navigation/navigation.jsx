@@ -1,3 +1,5 @@
+import { TbDownload } from 'react-icons/tb'
+
 function Navigation() {
     return (
         <nav className="navbar navbar-expand-lg bg-light" style={{borderBottom: '1px solid black'}}>
@@ -9,7 +11,7 @@ function Navigation() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 me-0">
                         <li className="nav-item">
-                            <button type="button" className="btn btn-outline-secondary">Download</button>
+                            <button type="button" className="btn btn-outline-secondary"><TbDownload /> Download</button>
                         </li>
                     </ul>
                 </div>
