@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit"
-import canvasSlice from "./slices/canvasSlice"
+import svgSlice from "./slices/svgSlice"
+
 
 const store = configureStore({
     reducer: {
-        canvasState: canvasSlice
+        svg: svgSlice
     }
 })
 

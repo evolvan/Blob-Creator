@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TbOctagon, TbCircle, TbTriangle } from 'react-icons/tb';
 import { GiWaterSplash } from 'react-icons/gi';
 import { BiCustomize } from 'react-icons/bi';
-import { changeComplexity, changeContrast } from "../../store/slices/canvasSlice";
+import { changeComplexity, changeContrast } from "../../store/slices/svgSlice";
 import { useDispatch } from "react-redux";
 
 function Shape() {
