@@ -1,15 +1,15 @@
 /* Main layout */
 #main-layout {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
 }
 
 #preview {
     background-color: white;
     border-radius: 50px;
     width: 35vw;
-    margin: 2rem;
+    margin: 1rem 2rem;
+    box-shadow: 0 0 25px 2px rgb(167, 167, 167);
 }
 
 #preview svg {
@@ -17,6 +17,12 @@
     width: 100%;
     max-width: 40rem;
     height: auto;
+}
+
+.reload-icon{
+    position: relative;
+    left: 25%;
+    top: -25%;
 }
 
 @media screen and (max-width: 768px) {
