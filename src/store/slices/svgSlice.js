@@ -27,20 +27,30 @@ const generateData = (complexity, contrast) => {
 
 const initialData = generateData(5, 4);
 
-export const canvasSlice = createSlice({
+export const svgSlice = createSlice({
     name: "canvas",
     initialState: {
+        type: "solid",
         fill: "#1f4e43",
+        gradientColorOne: null,
+        gradientColorTwo: null,
+        stroke: "transparent",
+        strokeWidth: 1,
         contrast: 4,
         complexity: 5,
         data: initialData,
-        shape: roundPath(generateBlobShape(initialData) + "Z"),
+        shape: roundPath(generateBlobShape(initialData) + "Z")
     },
     reducers: {
-        changeFill: (state, action) => {
-            return { ...state, fill: action.payload };
+        changeType: (state, action) => {
+            if(action.payload === "solid" && state.type !== 'solid'){
+                return { ...state, type: action.payload, fill: state.stroke, stroke: "transparent" };
+            }
+            if(action.payload === "outline" && state.type !== 'outline'){
+                return { ...state, type: action.payload, stroke: state.fill, fill: "transparent"};
+            }
+            return { ...state}
         },
-
         changeContrast: (state, action) => {
             const data = generateData(state.complexity, action.payload);
             const shape = roundPath(generateBlobShape(data) + "Z");
@@ -56,11 +66,21 @@ export const canvasSlice = createSlice({
         changeData: (state) => {
             const data = generateData(state.complexity, state.contrast);
             const shape = roundPath(generateBlobShape(data) + "Z");
-            return  {...state, data, shape};
+            return { ...state, data, shape };
         },
+        changeFill: (state, action) => {
+            return { ...state, fill: action.payload };
+        },
+        changeStroke: (state, action) => {
+            return { ...state, stroke: action.payload };
+        },
+        changeStrokeWidth: (state, action) => {
+            let strokeWidth = action.payload * 0.1;
+            return { ...state, strokeWidth };
+        }
     }
 });
 
-export const { changeFill, changeContrast, changeComplexity, changeData } = canvasSlice.actions;
+export const { changeFill, changeContrast, changeComplexity, changeData, changeType, changeStroke, changeStrokeWidth } = svgSlice.actions;
 
-export default canvasSlice.reducer;
+export default svgSlice.reducer;

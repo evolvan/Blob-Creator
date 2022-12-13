@@ -3,7 +3,7 @@ import { TbDownload, TbArrowsRandom } from 'react-icons/tb'
 import Fill from "./fill";
 import Shape from './shape';
 import { useDispatch } from 'react-redux';
-import { changeData } from '../../store/slices/canvasSlice';
+import { changeData } from '../../store/slices/svgSlice';
 
 
 function Sidebar() {
@@ -13,10 +13,6 @@ function Sidebar() {
 
     const dataHandler = () => {
         dispatch(changeData());
-    };
-
-    const downloadHandler = () => {
-
     };
 
     return (
