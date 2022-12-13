@@ -2,7 +2,7 @@ import styles from './canvas.module.css';
 import { useSelector } from 'react-redux';
 
 
-function Canvas({ color }) {
+function Canvas() {
 
     const canvasState = useSelector(state => state.canvasState);
     

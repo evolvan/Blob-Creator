@@ -30,7 +30,7 @@ const initialData = generateData(5, 4);
 export const canvasSlice = createSlice({
     name: "canvas",
     initialState: {
-        fill: "#6900ff",
+        fill: "#1f4e43",
         contrast: 4,
         complexity: 5,
         data: initialData,

@@ -1,6 +1,9 @@
-.sidebar {
+.bar {
     background-color: rgb(255, 255, 255);
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
 }
 
 #react-colorful {
@@ -54,11 +57,28 @@
 }
 
 .btn-custom {
-    background-color: #6900ff;
+    background-color: transparent;
     padding: 8px 32px;
     margin: 5px 0;
     border: 0;
     border-radius: 25px;
-    color: white;
-    box-shadow: 0 0 5px 1px #7d659e;
+    color: #1f4e43;
+    box-shadow: 0 0 5px 1px #1f4e43;
+}
+
+.btn-container {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;}
+
+.btn-container button {
+    margin: 0.5rem 4rem;
+}
+
+@media screen and (max-width: 768px) {
+    .bar {
+        align-items: center;
+    }
+
 }
