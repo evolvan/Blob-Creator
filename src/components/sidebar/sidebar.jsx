@@ -1,18 +1,26 @@
 import styles from './sidebar.module.css';
 import { TbDownload, TbArrowsRandom } from 'react-icons/tb'
-import Fill from "./fill";
+import Fill from "./fill/fill";
 import Shape from './shape';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeData } from '../../store/slices/svgSlice';
+import fileDownload from 'js-file-download';
 
 
 function Sidebar() {
 
 
     const dispatch = useDispatch();
+    const svgState = useSelector(state => state.svg)
 
     const dataHandler = () => {
         dispatch(changeData());
+    };
+
+    const SVG_TEMPLATE = `<svg viewBox="0 0 200 200">${(svgState.type === 'linear gradient') ? `<linearGradient id="linear-grad" gradientTransform="rotate(${svgState.angle} 0.5 0.5)"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></linearGradient>` : ""}${(svgState.type === "radial gradient") ? `<radialGradient id="radial-grad" r="100%" cx="${svgState.cx + "%"}" cy="${svgState.cy + "%"}"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></radialGradient>` : ""}<path fill="${svgState.fill}" stroke="${svgState.stroke}" stroke-width="${svgState.strokeWidth}" d="${svgState.shape}" transform="translate(100 100)" /></svg>`;
+
+    const downloadHandler = () => {
+        fileDownload(SVG_TEMPLATE, "blob.svg");
     };
 
     return (
@@ -23,7 +31,7 @@ function Sidebar() {
             </div>
             <div className={styles["btn-container"]}>
                 <button type="button" className="btn btn-outline-success" onClick={dataHandler}><TbArrowsRandom /> Generate</button>
-                <button type="button" className="btn btn-success"><TbDownload /> Download</button>
+                <button type="button" className="btn btn-success" onClick={downloadHandler}><TbDownload /> Download</button>
             </div>
         </div>
     );

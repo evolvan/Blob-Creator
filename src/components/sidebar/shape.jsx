@@ -4,11 +4,12 @@ import { TbOctagon, TbCircle, TbTriangle } from 'react-icons/tb';
 import { GiWaterSplash } from 'react-icons/gi';
 import { BiCustomize } from 'react-icons/bi';
 import { changeComplexity, changeContrast } from "../../store/slices/svgSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Shape() {
 
     const [optionTwo, setOptionTwo] = useState(false);
+    const svgState = useSelector(state => state.svg);
     const dispatch = useDispatch();
 
     const optionTwoHandler = () => {
@@ -34,7 +35,7 @@ function Shape() {
                     <label htmlFor="customRange1" className="form-label">Edges:</label>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <span><TbTriangle size={20} /></span>
-                        <input type="range" className="form-range" min={3} max={8} defaultValue={3} onChange={complexityHandler} />
+                        <input type="range" className="form-range" min={3} max={8} defaultValue={svgState.contrast} onChange={complexityHandler} />
                         <span><TbOctagon size={20} /></span>
                     </div>
                 </div>
@@ -42,7 +43,7 @@ function Shape() {
                     <label htmlFor="customRange1" className="form-label">Smoothness:</label>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <span><TbCircle size={20} /></span>
-                        <input type="range" className="form-range" min={1} max={10} defaultValue={1} onChange={contrastHandler} />
+                        <input type="range" className="form-range" min={1} max={10} defaultValue={svgState.complexity} onChange={contrastHandler} />
                         <span><GiWaterSplash size={20} /></span>
                     </div>
                 </div>
