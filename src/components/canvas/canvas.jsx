@@ -1,7 +1,6 @@
 import styles from './canvas.module.css';
 import { useSelector } from 'react-redux';
 
-
 function Canvas() {
 
     const svgState = useSelector(state => state.svg);
@@ -14,6 +13,9 @@ function Canvas() {
                         <stop offset="0%" stopColor={svgState.gradientColorOne} />
                         <stop offset="100%" stopColor={svgState.gradientColorTwo} />
                     </linearGradient>
+                    {/* <pattern id="image" patternUnits="objectBoundingBox" width="1" height="1">
+                        <image href="/src/assets/fill.jpg" x="0" y="0" style={{"width": "100%", "height": "auto"}} />
+                    </pattern> */}
                     <path fill={svgState.fill} stroke={svgState.stroke} strokeWidth={svgState.strokeWidth}
                         d={svgState.shape}
                         transform="translate(100 100)" />
