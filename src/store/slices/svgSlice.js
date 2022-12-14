@@ -32,8 +32,9 @@ export const svgSlice = createSlice({
     initialState: {
         type: "solid",
         fill: "#1f4e43",
-        gradientColorOne: null,
-        gradientColorTwo: null,
+        gradientColorOne: "#1f4e43",
+        gradientColorTwo: "#000000",
+        angle: 0,
         stroke: "transparent",
         strokeWidth: 1,
         contrast: 4,
@@ -44,10 +45,13 @@ export const svgSlice = createSlice({
     reducers: {
         changeType: (state, action) => {
             if(action.payload === "solid" && state.type !== 'solid'){
-                return { ...state, type: action.payload, fill: state.stroke, stroke: "transparent" };
+                return { ...state, type: action.payload, fill: "#1f4e43", stroke: "transparent" };
             }
             if(action.payload === "outline" && state.type !== 'outline'){
-                return { ...state, type: action.payload, stroke: state.fill, fill: "transparent"};
+                return { ...state, type: action.payload, stroke: "#1f4e43", fill: "transparent"};
+            }
+            if(action.payload === "linear gradient" && state.type !== "linear"){
+                return { ...state, type: action.payload, fill: "url(#grad)", stroke: "transparent"};
             }
             return { ...state}
         },
@@ -75,12 +79,21 @@ export const svgSlice = createSlice({
             return { ...state, stroke: action.payload };
         },
         changeStrokeWidth: (state, action) => {
-            let strokeWidth = action.payload * 0.1;
+            const strokeWidth = action.payload * 0.1;
             return { ...state, strokeWidth };
+        },
+        changeGradientColorOne: (state, action) => {
+            return { ...state, gradientColorOne: action.payload};
+        },
+        changeGradientColorTwo: (state, action) => {
+            return { ...state, gradientColorTwo: action.payload};
+        },
+        changeAngle: (state, action) => {
+            return {...state, angle: action.payload};
         }
     }
 });
 
-export const { changeFill, changeContrast, changeComplexity, changeData, changeType, changeStroke, changeStrokeWidth } = svgSlice.actions;
+export const { changeFill, changeContrast, changeComplexity, changeData, changeType, changeStroke, changeStrokeWidth, changeGradientColorOne,changeGradientColorTwo, changeAngle } = svgSlice.actions;
 
 export default svgSlice.reducer;

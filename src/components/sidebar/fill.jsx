@@ -3,7 +3,7 @@ import { HexColorPicker } from "react-colorful";
 import { TfiPaintBucket } from 'react-icons/tfi';
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { changeFill, changeStroke, changeStrokeWidth, changeType } from "../../store/slices/svgSlice";
+import { changeAngle, changeFill, changeGradientColorOne, changeGradientColorTwo, changeStroke, changeStrokeWidth, changeType } from "../../store/slices/svgSlice";
 
 
 function Fill() {
@@ -27,11 +27,23 @@ function Fill() {
 
     const strokeHandler = (value) => {
         dispatch(changeFill("transparent"));
-        dispatch(changeStroke(value))
+        dispatch(changeStroke(value));
     }
 
     const strokeWidthHandler = (e) => {
         dispatch(changeStrokeWidth(e.target.value));
+    };
+
+    const gradHandlerOne = (value) => {
+        dispatch(changeGradientColorOne(value));
+    };
+
+    const gradHandlerTwo = (value) => {
+        dispatch(changeGradientColorTwo(value));
+    };
+
+    const anglehandler = (e) => {
+        dispatch(changeAngle(e.target.value));
     }
 
     return (
@@ -44,9 +56,10 @@ function Fill() {
             {optionOne && <div className={styles["options-body"]}>
                 <div>
                     <p>Fill type:</p>
-                    <div className="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" className="btn btn-secondary" onClick={typeHandler} >Solid</button>
-                        <button type="button" className="btn btn-secondary" onClick={typeHandler}>Outline</button>
+                    <div className="">
+                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Solid</button>
+                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Outline</button>
+                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Linear gradient</button>
                     </div>
                 </div>
 
@@ -81,6 +94,33 @@ function Fill() {
                             </div>
                             <p>Border Width:</p>
                             <input type="range" className="form-range" min={1} max={40} defaultValue={1} onChange={strokeWidthHandler} />
+                        </> : ""}
+
+                    {svgState.type === 'linear gradient' ?
+                        <>
+                            <p>Color:</p>
+                            <div className="btn-group">
+                                <a data-bs-toggle="dropdown"><div className={styles["color-selector"]} style={{ backgroundColor: svgState.gradientColorOne }}></div></a>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <div className={styles["color-picker"]}>
+                                            <p>Pick a color</p>
+                                            <HexColorPicker color={svgState.gradientColorOne} onChange={gradHandlerOne} />
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a data-bs-toggle="dropdown"><div className={styles["color-selector"]} style={{ backgroundColor: svgState.gradientColorTwo }}></div></a>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <div className={styles["color-picker"]}>
+                                            <p>Pick a color</p>
+                                            <HexColorPicker color={svgState.gradientColorTwo} onChange={gradHandlerTwo} />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>Angle:</p>
+                            <input type="range" className="form-range" min={1} max={360} defaultValue={svgState.angle} onChange={anglehandler} />
                         </> : ""}
                 </div>
 
