@@ -60,13 +60,11 @@ export const svgSlice = createSlice({
             const shape = roundPath(generateBlobShape(data) + "Z");
             return { ...state, data, shape, contrast: action.payload };
         },
-
         changeComplexity: (state, action) => {
             const data = generateData(action.payload, state.contrast);
             const shape = roundPath(generateBlobShape(data) + "Z");
             return { ...state, data, shape, complexity: action.payload };
         },
-
         changeData: (state) => {
             const data = generateData(state.complexity, state.contrast);
             const shape = roundPath(generateBlobShape(data) + "Z");

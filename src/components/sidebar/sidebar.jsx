@@ -1,6 +1,6 @@
 import styles from './sidebar.module.css';
 import { TbDownload, TbArrowsRandom } from 'react-icons/tb'
-import Fill from "./fill";
+import Fill from "./fill/fill";
 import Shape from './shape';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeData } from '../../store/slices/svgSlice';
