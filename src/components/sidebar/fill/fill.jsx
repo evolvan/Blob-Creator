@@ -6,6 +6,7 @@ import { changeType } from "../../../store/slices/svgSlice";
 import Solid from "./solid";
 import Outline from "./outline";
 import LinearGradient from "./linearGradient";
+import RadialGradient from "./radialGradient";
 
 
 function Fill() {
@@ -36,12 +37,14 @@ function Fill() {
                         <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Solid</button>
                         <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Outline</button>
                         <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Linear gradient</button>
+                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Radial gradient</button>
                     </div>
                 </div>
                 <div>
                     {(svgState.type === "solid") && <Solid />}
                     {(svgState.type === 'outline') && <Outline />}
                     {(svgState.type === 'linear gradient') && <LinearGradient />}
+                    {(svgState.type === 'radial gradient') && <RadialGradient /> }
                 </div>
             </div>}
         </div>

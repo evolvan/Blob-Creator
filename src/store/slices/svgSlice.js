@@ -35,6 +35,8 @@ export const svgSlice = createSlice({
         gradientColorOne: "#1f4e43",
         gradientColorTwo: "#000000",
         angle: 0,
+        cx: 50,
+        cy: 50,
         stroke: "transparent",
         strokeWidth: 1,
         contrast: 4,
@@ -50,8 +52,11 @@ export const svgSlice = createSlice({
             if(action.payload === "outline" && state.type !== 'outline'){
                 return { ...state, type: action.payload, stroke: "#1f4e43", fill: "transparent"};
             }
-            if(action.payload === "linear gradient" && state.type !== "linear"){
-                return { ...state, type: action.payload, fill: "url(#grad)", stroke: "transparent"};
+            if(action.payload === "linear gradient" && state.type !== "linear gradient"){
+                return { ...state, type: action.payload, fill: "url(#linear-grad)", stroke: "transparent"};
+            }
+            if(action.payload === "radial gradient" && state.type !== "radial gradient"){
+                return { ...state, type: action.payload, fill: "url(#radial-grad)", stroke: "transparent"};
             }
             return { ...state}
         },
@@ -88,10 +93,16 @@ export const svgSlice = createSlice({
         },
         changeAngle: (state, action) => {
             return {...state, angle: action.payload};
+        },
+        changeCX: (state, action) => {
+            return {...state, cx: action.payload};
+        },
+        changeCY: (state, action) => {
+            return {...state, cy: action.payload};
         }
     }
 });
 
-export const { changeFill, changeContrast, changeComplexity, changeData, changeType, changeStroke, changeStrokeWidth, changeGradientColorOne,changeGradientColorTwo, changeAngle } = svgSlice.actions;
+export const { changeFill, changeContrast, changeComplexity, changeData, changeType, changeStroke, changeStrokeWidth, changeGradientColorOne,changeGradientColorTwo, changeAngle, changeCX, changeCY } = svgSlice.actions;
 
 export default svgSlice.reducer;

@@ -17,7 +17,7 @@ function Sidebar() {
         dispatch(changeData());
     };
 
-    const SVG_TEMPLATE = `<svg viewBox="0 0 200 200"><linearGradient id="grad" gradientTransform="rotate(${svgState.angle} 0.5 0.5)"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></linearGradient><path fill="${svgState.fill}" stroke="${svgState.stroke}" stroke-width="${svgState.strokeWidth}" d="${svgState.shape}" transform="translate(100 100)" /></svg>`;
+    const SVG_TEMPLATE = `<svg viewBox="0 0 200 200">${(svgState.type === 'linear gradient') ? `<linearGradient id="linear-grad" gradientTransform="rotate(${svgState.angle} 0.5 0.5)"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></linearGradient>` : ""}${(svgState.type === "radial gradient") ? `<radialGradient id="radial-grad" r="100%" cx="${svgState.cx + "%"}" cy="${svgState.cy + "%"}"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></radialGradient>` : ""}<path fill="${svgState.fill}" stroke="${svgState.stroke}" stroke-width="${svgState.strokeWidth}" d="${svgState.shape}" transform="translate(100 100)" /></svg>`;
 
     const downloadHandler = () => {
         fileDownload(SVG_TEMPLATE, "blob.svg");
