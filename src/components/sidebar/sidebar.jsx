@@ -31,7 +31,7 @@ function Sidebar() {
     return (
         <>
             <div className={styles["main"]}>
-                <div>
+                <div id='option-container'>
                     <Fill />
                     <Shape />
                 </div>
