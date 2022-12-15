@@ -19,12 +19,6 @@
     height: auto;
 }
 
-.reload-icon{
-    position: relative;
-    left: 25%;
-    top: -25%;
-}
-
 @media screen and (max-width: 768px) {
     #main-layout {
         display: flex;

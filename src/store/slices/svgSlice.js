@@ -42,21 +42,22 @@ export const svgSlice = createSlice({
         contrast: 4,
         complexity: 5,
         data: initialData,
+        oldShape: roundPath(generateBlobShape(initialData) + "Z"),
         shape: roundPath(generateBlobShape(initialData) + "Z")
     },
     reducers: {
         changeType: (state, action) => {
             if(action.payload === "solid" && state.type !== 'solid'){
-                return { ...state, type: action.payload, fill: "#1f4e43", stroke: "transparent" };
+                return { ...state, type: action.payload, fill: "#1f4e43", stroke: "transparent", strokeWidth: 0 };
             }
             if(action.payload === "outline" && state.type !== 'outline'){
-                return { ...state, type: action.payload, stroke: "#1f4e43", fill: "transparent"};
+                return { ...state, type: action.payload, stroke: "#1f4e43", strokeWidth: 0.1 , fill: "transparent"};
             }
             if(action.payload === "linear gradient" && state.type !== "linear gradient"){
-                return { ...state, type: action.payload, fill: "url(#linear-grad)", stroke: "transparent"};
+                return { ...state, type: action.payload, fill: "url(#linear-grad)", stroke: "transparent", strokeWidth: 0};
             }
             if(action.payload === "radial gradient" && state.type !== "radial gradient"){
-                return { ...state, type: action.payload, fill: "url(#radial-grad)", stroke: "transparent"};
+                return { ...state, type: action.payload, fill: "url(#radial-grad)", stroke: "transparent", strokeWidth: 0};
             }
             return { ...state}
         },
@@ -73,7 +74,7 @@ export const svgSlice = createSlice({
         changeData: (state) => {
             const data = generateData(state.complexity, state.contrast);
             const shape = roundPath(generateBlobShape(data) + "Z");
-            return { ...state, data, shape };
+            return { ...state, data, oldShape: state.shape, shape };
         },
         changeFill: (state, action) => {
             return { ...state, fill: action.payload };
