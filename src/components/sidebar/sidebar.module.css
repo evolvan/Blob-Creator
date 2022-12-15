@@ -74,7 +74,7 @@
     margin: 0.5rem 4rem;
 }
 
-.logo{
+.logo {
     position: fixed;
     bottom: 0px;
     right: 10px;
@@ -94,12 +94,21 @@
     color: white;
 }
 
+pre {
+    overflow: scroll;
+    background-color: rgb(66, 66, 66);
+    color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    padding: 1.25rem 1rem;
+}
+
 @media screen and (max-width: 768px) {
     .main {
         flex-direction: column-reverse;
         margin-bottom: 50px;
         align-items: center;
     }
+
     .logo {
         position: static;
         background-color: #1f4e43;
