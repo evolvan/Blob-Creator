@@ -1,5 +1,5 @@
 import styles from './sidebar.module.css';
-import { TbDownload, TbArrowsRandom } from 'react-icons/tb'
+import { TbDownload, TbArrowsRandom, TbClipboardText } from 'react-icons/tb'
 import Fill from "./fill/fill";
 import Shape from './shape';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,6 +12,7 @@ function Sidebar() {
 
     const dispatch = useDispatch();
     const svgState = useSelector(state => state.svg)
+
 
     const dataHandler = () => {
         dispatch(changeData());
@@ -28,17 +29,22 @@ function Sidebar() {
     };
 
     return (
-        <div className={styles["bar"]}>
-            <div>
-                <Fill />
-                <Shape />
+        <>
+            <div className={styles["main"]}>
+                <div>
+                    <Fill />
+                    <Shape />
+                </div>
+                <div className={styles["btn-container"]}>
+                    <button type="button" className="btn btn-outline-success" onClick={dataHandler}><TbArrowsRandom /> Generate</button>
+                    <button type="button" className="btn btn-success" onClick={copyHandler}><TbClipboardText /> Copy</button>
+                    <button type="button" className="btn btn-success" onClick={downloadHandler}><TbDownload /> Download</button>
+                </div>
             </div>
-            <div className={styles["btn-container"]}>
-                <button type="button" className="btn btn-outline-success" onClick={dataHandler}><TbArrowsRandom /> Generate</button>
-                <button type="button" className="btn btn-outline-success" onClick={copyHandler}><TbArrowsRandom /> Copy</button>
-                <button type="button" className="btn btn-success" onClick={downloadHandler}><TbDownload /> Download</button>
+            <div className={styles["logo"]}>
+                <h1><b>Made by <a href="https://devlliant.me" target="_blank">Manjot</a> at <a href="https://evolvan.com" target="_blank">Evolvan</a></b></h1>
             </div>
-        </div>
+        </>
     );
 };
 

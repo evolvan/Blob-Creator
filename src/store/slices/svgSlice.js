@@ -51,7 +51,7 @@ export const svgSlice = createSlice({
                 return { ...state, type: action.payload, fill: "#1f4e43", stroke: "transparent", strokeWidth: 0 };
             }
             if(action.payload === "outline" && state.type !== 'outline'){
-                return { ...state, type: action.payload, stroke: "#1f4e43", fill: "transparent"};
+                return { ...state, type: action.payload, stroke: "#1f4e43", strokeWidth: 0.1 , fill: "transparent"};
             }
             if(action.payload === "linear gradient" && state.type !== "linear gradient"){
                 return { ...state, type: action.payload, fill: "url(#linear-grad)", stroke: "transparent", strokeWidth: 0};

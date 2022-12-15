@@ -12,6 +12,10 @@ import RadialGradient from "./radialGradient";
 function Fill() {
 
     const [optionOne, setOptionOne] = useState(true);
+    const [solid, setSolid] = useState(true);
+    const [outline, setOutline] = useState(false);
+    const [linear, setLinear] = useState(false);
+    const [radial, setRadial] = useState(false);
     const svgState = useSelector(state => state.svg);
     const dispatch = useDispatch();
 
@@ -21,6 +25,36 @@ function Fill() {
     };
 
     const typeHandler = (e) => {
+        switch (e.target.innerHTML.toLowerCase()) {
+            case 'solid':{
+                setSolid(true);
+                setOutline(false);
+                setLinear(false);
+                setRadial(false);
+                break;
+            }
+            case 'outline':{
+                setSolid(false);
+                setOutline(true);
+                setLinear(false);
+                setRadial(false);
+                break;
+            }
+            case 'linear gradient':{
+                setSolid(false);
+                setOutline(false);
+                setLinear(true);
+                setRadial(false);
+                break;
+            }
+            case 'radial gradient':{
+                setSolid(false);
+                setOutline(false);
+                setLinear(false);
+                setRadial(true);
+                break;
+            }
+        }
         dispatch(changeType(e.target.innerHTML.toLowerCase()));
     };
 
@@ -33,11 +67,11 @@ function Fill() {
             {optionOne && <div className={styles["options-body"]}>
                 <div>
                     <p>Fill type:</p>
-                    <div className="">
-                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Solid</button>
-                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Outline</button>
-                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Linear gradient</button>
-                        <button type="button" className="btn btn-outline-success m-1" onClick={typeHandler}>Radial gradient</button>
+                    <div>
+                        <button type="button" className={`btn ${solid ? 'btn-success' : 'btn-outline-success'} m-1`} onClick={typeHandler}>Solid</button>
+                        <button type="button" className={`btn ${outline ? 'btn-success' : 'btn-outline-success'} m-1`} onClick={typeHandler}>Outline</button>
+                        <button type="button" className={`btn ${linear ? 'btn-success' : 'btn-outline-success'} m-1`} onClick={typeHandler}>Linear gradient</button>
+                        <button type="button" className={`btn ${radial ? 'btn-success' : 'btn-outline-success'} m-1`} onClick={typeHandler}>Radial gradient</button>
                     </div>
                 </div>
                 <div>
