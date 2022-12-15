@@ -22,7 +22,9 @@ function Canvas() {
                     </pattern> */}
                     <path fill={svgState.fill} stroke={svgState.stroke} strokeWidth={svgState.strokeWidth}
                         d={svgState.shape}
-                        transform="translate(100 100)" />
+                        transform="translate(100 100)">
+                        <animate attributeName="d" from={svgState.oldShape} to={svgState.shape} begin="0s" dur="1s"/>
+                    </path>
                 </svg>
             </div>
         </main>

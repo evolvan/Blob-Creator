@@ -19,6 +19,10 @@ function Sidebar() {
 
     const SVG_TEMPLATE = `<svg viewBox="0 0 200 200">${(svgState.type === 'linear gradient') ? `<linearGradient id="linear-grad" gradientTransform="rotate(${svgState.angle} 0.5 0.5)"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></linearGradient>` : ""}${(svgState.type === "radial gradient") ? `<radialGradient id="radial-grad" r="100%" cx="${svgState.cx + "%"}" cy="${svgState.cy + "%"}"><stop offset="0%" stop-color="${svgState.gradientColorOne}" /><stop offset="100%" stop-color="${svgState.gradientColorTwo}" /></radialGradient>` : ""}<path fill="${svgState.fill}" stroke="${svgState.stroke}" stroke-width="${svgState.strokeWidth}" d="${svgState.shape}" transform="translate(100 100)" /></svg>`;
 
+    const copyHandler = () => {
+        navigator.clipboard.writeText(SVG_TEMPLATE);
+    };
+
     const downloadHandler = () => {
         fileDownload(SVG_TEMPLATE, "blob.svg");
     };
@@ -31,6 +35,7 @@ function Sidebar() {
             </div>
             <div className={styles["btn-container"]}>
                 <button type="button" className="btn btn-outline-success" onClick={dataHandler}><TbArrowsRandom /> Generate</button>
+                <button type="button" className="btn btn-outline-success" onClick={copyHandler}><TbArrowsRandom /> Copy</button>
                 <button type="button" className="btn btn-success" onClick={downloadHandler}><TbDownload /> Download</button>
             </div>
         </div>

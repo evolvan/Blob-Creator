@@ -6,12 +6,12 @@
 
 .sidebar {
     width: 25%;
-    height: calc(100vh - 75px);
+    height: 100vh;
 }
 
 .canvas {
     width: 75%;
-    height: calc(100vh - 75px);
+    height: 100vh;
     background-color: rgb(233, 233, 233);
 }
 
