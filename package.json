@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "build": "vite build --base=/blob-creator/",
+    "build": "vite build --base=/tools/blob-creator/",
     "preview": "vite preview"
   },
   "dependencies": {
