@@ -7,7 +7,6 @@ import { changeData } from '../../store/slices/svgSlice';
 import fileDownload from 'js-file-download';
 import { useState } from 'react';
 
-
 function Sidebar() {
 
 

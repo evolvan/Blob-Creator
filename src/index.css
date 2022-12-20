@@ -16,3 +16,12 @@ p{
 .row{
     margin: 0;
 }
+
+.ad{
+    width: 20%;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    margin: auto 0;
+    align-self: center;
+}

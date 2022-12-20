@@ -1,4 +1,5 @@
 import Canvas from '../canvas/canvas';
+import GoogleAd from '../google/google';
 import Sidebar from '../sidebar/sidebar';
 import styles from './home.module.css'
 
@@ -10,6 +11,7 @@ function Home() {
                 <div className={styles["sidebar"]}><Sidebar /></div>
                 <div className={styles["canvas"]}><Canvas /></div>
             </div>
+            <GoogleAd id={'ad'}/>
         </>
     )
 }
