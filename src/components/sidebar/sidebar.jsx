@@ -58,7 +58,7 @@ function Sidebar() {
                 </div>
             </div>
             <div className={styles["logo"]}>
-                <h1><b>Made by <a href="https://devlliant.me" target="_blank">Manjot</a> at <a href="https://evolvan.com" target="_blank">Evolvan</a></b></h1>
+                <h1><b>Made by <a href="https://in.linkedin.com/in/manjot-s-gill" target="_blank">Manjot</a> at <a href="https://evolvan.com" target="_blank">Evolvan</a></b></h1>
             </div>
 
 
