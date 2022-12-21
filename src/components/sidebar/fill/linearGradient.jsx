@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { HexColorPicker } from 'react-colorful';
 import {
   changeAngle,
   changeGradientColorOne,
   changeGradientColorTwo,
 } from '../../../store/slices/svgSlice';
-import { HexColorPicker } from 'react-colorful';
 import styles from '../sidebar.module.css';
 
 function LinearGradient() {
@@ -27,12 +27,12 @@ function LinearGradient() {
     <>
       <p>Color:</p>
       <div className="btn-group">
-        <a data-bs-toggle="dropdown">
+        <button type="button" data-bs-toggle="dropdown">
           <div
             className={styles['color-selector']}
             style={{ backgroundColor: svgState.gradientColorOne }}
-          ></div>
-        </a>
+          />
+        </button>
         <ul className="dropdown-menu">
           <li>
             <div className={styles['color-picker']}>
@@ -44,12 +44,12 @@ function LinearGradient() {
             </div>
           </li>
         </ul>
-        <a data-bs-toggle="dropdown">
+        <button type="button" data-bs-toggle="dropdown">
           <div
             className={styles['color-selector']}
             style={{ backgroundColor: svgState.gradientColorTwo }}
-          ></div>
-        </a>
+          />
+        </button>
         <ul className="dropdown-menu">
           <li>
             <div className={styles['color-picker']}>

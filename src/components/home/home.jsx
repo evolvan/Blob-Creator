@@ -4,16 +4,14 @@ import styles from './home.module.css';
 
 function Home() {
   return (
-    <>
-      <div className={styles['main-layout']}>
-        <div className={styles['sidebar']}>
-          <Sidebar />
-        </div>
-        <div className={styles['canvas']}>
-          <Canvas />
-        </div>
+    <div className={styles['main-layout']}>
+      <div className={styles.sidebar}>
+        <Sidebar />
       </div>
-    </>
+      <div className={styles.canvas}>
+        <Canvas />
+      </div>
+    </div>
   );
 }
 

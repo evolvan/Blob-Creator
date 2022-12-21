@@ -1,7 +1,7 @@
-import styles from '../sidebar.module.css';
 import { TfiPaintBucket } from 'react-icons/tfi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import styles from '../sidebar.module.css';
 import { changeType } from '../../../store/slices/svgSlice';
 import Solid from './solid';
 import Outline from './outline';
@@ -18,9 +18,7 @@ function Fill() {
   const dispatch = useDispatch();
 
   const collapseHandler = () => {
-    setCollapse((state) => {
-      return !state;
-    });
+    setCollapse((state) => !state);
   };
 
   const typeHandler = (e) => {
@@ -53,16 +51,24 @@ function Fill() {
         setRadial(true);
         break;
       }
+      default: {
+        setSolid(true);
+        setOutline(false);
+        setLinear(false);
+        setRadial(false);
+      }
     }
     dispatch(changeType(e.target.innerHTML.toLowerCase()));
   };
 
   return (
-    <div className={styles['options']}>
+    <div className={styles.options}>
       <div className={styles['options-toggler']}>
-        <a onClick={collapseHandler}>
-          <TfiPaintBucket /> BLOB FILL
-        </a>
+        <button type="button" onClick={collapseHandler}>
+          <TfiPaintBucket />
+          {' '}
+          BLOB FILL
+        </button>
         {collapse ? (
           <svg
             stroke="currentColor"
@@ -78,7 +84,7 @@ function Fill() {
               // eslint-disable-next-line max-len
               d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
               clipRule="evenodd"
-            ></path>
+            />
           </svg>
         ) : (
           <svg
@@ -97,7 +103,7 @@ function Fill() {
               // eslint-disable-next-line max-len
               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
               clipRule="evenodd"
-            ></path>
+            />
           </svg>
         )}
       </div>
@@ -108,32 +114,28 @@ function Fill() {
             <div>
               <button
                 type="button"
-                className=
-                  {`btn ${solid ? 'btn-success' : 'btn-outline-success'} m-1`}
+                className={`btn ${solid ? 'btn-success' : 'btn-outline-success'} m-1`}
                 onClick={typeHandler}
               >
                 Solid
               </button>
               <button
                 type="button"
-                className=
-                  {`btn ${outline ? 'btn-success' : 'btn-outline-success'} m-1`}
+                className={`btn ${outline ? 'btn-success' : 'btn-outline-success'} m-1`}
                 onClick={typeHandler}
               >
                 Outline
               </button>
               <button
                 type="button"
-                className=
-                  {`btn ${linear ? 'btn-success' : 'btn-outline-success'} m-1`}
+                className={`btn ${linear ? 'btn-success' : 'btn-outline-success'} m-1`}
                 onClick={typeHandler}
               >
                 Linear gradient
               </button>
               <button
                 type="button"
-                className=
-                  {`btn ${radial ? 'btn-success' : 'btn-outline-success'} m-1`}
+                className={`btn ${radial ? 'btn-success' : 'btn-outline-success'} m-1`}
                 onClick={typeHandler}
               >
                 Radial gradient

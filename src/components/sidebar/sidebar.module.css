@@ -22,7 +22,7 @@
     position: relative;
 }
 
-.options-toggler a::before {
+.options-toggler button::before {
     content: "";
     cursor: pointer;
     position: absolute;

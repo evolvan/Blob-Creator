@@ -24,12 +24,13 @@ function Outline() {
     <>
       <p>Color:</p>
       <div className="btn-group">
-        <a data-bs-toggle="dropdown">
+        <button type="button" data-bs-toggle="dropdown">
           <div
             className={styles['color-selector']}
             style={{ backgroundColor: svgState.stroke }}
-          ></div>
-        </a>
+          />
+        </button
+        >
         <ul className="dropdown-menu">
           <li>
             <div className={styles['color-picker']}>

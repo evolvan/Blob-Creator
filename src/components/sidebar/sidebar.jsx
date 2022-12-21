@@ -1,11 +1,11 @@
-import styles from './sidebar.module.css';
 import { TbDownload, TbArrowsRandom, TbClipboardText } from 'react-icons/tb';
-import Fill from './fill/fill';
-import Shape from './shape';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeData } from '../../store/slices/svgSlice';
 import fileDownload from 'js-file-download';
 import { useState } from 'react';
+import styles from './sidebar.module.css';
+import Fill from './fill/fill';
+import Shape from './shape';
+import { changeData } from '../../store/slices/svgSlice';
 
 function Sidebar() {
   const svgState = useSelector((state) => state.svg);
@@ -14,26 +14,26 @@ function Sidebar() {
 
   const SVG_TEMPLATE = `<svg viewBox="0 0 200 200">
         ${
-          svgState.type === 'linear gradient' ?
-            `<linearGradient
+  svgState.type === 'linear gradient'
+    ? `<linearGradient
           id="linear-grad"
           gradientTransform="rotate(${svgState.angle} 0.5 0.5)">
             <stop offset="0%" stop-color="${svgState.gradientColorOne}" />
             <stop offset="100%" stop-color="${svgState.gradientColorTwo}" />
-        </linearGradient>` :
-            ''
+        </linearGradient>`
+    : ''
 }
         ${
-          svgState.type === 'radial gradient' ?
-            `<radialGradien
+  svgState.type === 'radial gradient'
+    ? `<radialGradien
           id="radial-grad"
           r="100%"
-          cx="${svgState.cx + '%'}"
-          cy="${svgState.cy + '%'}">
+          cx="${`${svgState.cx}%`}"
+          cy="${`${svgState.cy}%`}">
             <stop offset="0%" stop-color="${svgState.gradientColorOne}" />
             <stop offset="100%" stop-color="${svgState.gradientColorTwo}" />
-        </radialGradient>` :
-            ''
+        </radialGradient>`
+    : ''
 }
         <path
           fill="${svgState.fill}"
@@ -60,7 +60,7 @@ function Sidebar() {
 
   return (
     <>
-      <div className={styles['main']}>
+      <div className={styles.main}>
         <div id="option-container">
           <Fill />
           <Shape />
@@ -71,7 +71,9 @@ function Sidebar() {
             className="btn btn-outline-success"
             onClick={dataHandler}
           >
-            <TbArrowsRandom /> Generate
+            <TbArrowsRandom />
+            {' '}
+            Generate
           </button>
           <button
             type="button"
@@ -79,29 +81,36 @@ function Sidebar() {
             data-bs-toggle="modal"
             data-bs-target="#svgCodeModal"
           >
-            <TbClipboardText /> Copy
+            <TbClipboardText />
+            {' '}
+            Copy
           </button>
           <button
             type="button"
             className="btn btn-success"
             onClick={downloadHandler}
           >
-            <TbDownload /> Download
+            <TbDownload />
+            {' '}
+            Download
           </button>
         </div>
       </div>
-      <div className={styles['logo']}>
+      <div className={styles.logo}>
         <h1>
           <b>
-            Made by{' '}
+            Made by
+            {' '}
             <a
               href="https://in.linkedin.com/in/manjot-s-gill"
               target="_blank"
               rel="noreferrer"
             >
               Manjot
-            </a>{' '}
-            at{' '}
+            </a>
+            {' '}
+            at
+            {' '}
             <a href="https://evolvan.com" target="_blank" rel="noreferrer">
               Evolvan
             </a>
@@ -125,7 +134,9 @@ function Sidebar() {
                 }`}
                 onClick={copyHandler}
               >
-                <TbClipboardText /> {copied ? 'Copied' : 'Copy to clipboard'}
+                <TbClipboardText />
+                {' '}
+                {copied ? 'Copied' : 'Copy to clipboard'}
               </button>
             </div>
           </div>

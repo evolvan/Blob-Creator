@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { HexColorPicker } from 'react-colorful';
 import {
   changeCX,
   changeCY,
   changeGradientColorOne,
   changeGradientColorTwo,
 } from '../../../store/slices/svgSlice';
-import { HexColorPicker } from 'react-colorful';
 import styles from '../sidebar.module.css';
 
 function RadialGradient() {
@@ -32,12 +32,12 @@ function RadialGradient() {
     <>
       <p>Color:</p>
       <div className="btn-group">
-        <a data-bs-toggle="dropdown">
+        <button type="button" data-bs-toggle="dropdown">
           <div
             className={styles['color-selector']}
             style={{ backgroundColor: svgState.gradientColorOne }}
-          ></div>
-        </a>
+          />
+        </button>
         <ul className="dropdown-menu">
           <li>
             <div className={styles['color-picker']}>
@@ -49,12 +49,12 @@ function RadialGradient() {
             </div>
           </li>
         </ul>
-        <a data-bs-toggle="dropdown">
+        <button type="button" data-bs-toggle="dropdown">
           <div
             className={styles['color-selector']}
             style={{ backgroundColor: svgState.gradientColorTwo }}
-          ></div>
-        </a>
+          />
+        </button>
         <ul className="dropdown-menu">
           <li>
             <div className={styles['color-picker']}>

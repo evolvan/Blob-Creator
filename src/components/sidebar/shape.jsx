@@ -1,10 +1,10 @@
-import styles from './sidebar.module.css';
 import { useState } from 'react';
 import { TbOctagon, TbCircle, TbTriangle } from 'react-icons/tb';
 import { GiWaterSplash } from 'react-icons/gi';
 import { BiCustomize } from 'react-icons/bi';
-import { changeComplexity, changeContrast } from '../../store/slices/svgSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { changeComplexity, changeContrast } from '../../store/slices/svgSlice';
+import styles from './sidebar.module.css';
 
 function Shape() {
   const [collapse, setCollapse] = useState(false);
@@ -12,9 +12,7 @@ function Shape() {
   const dispatch = useDispatch();
 
   const collapseHandler = () => {
-    setCollapse((state) => {
-      return !state;
-    });
+    setCollapse((state) => !state);
   };
 
   const contrastHandler = (e) => {
@@ -26,11 +24,13 @@ function Shape() {
   };
 
   return (
-    <div className={styles['options']}>
+    <div className={styles.options}>
       <div className={styles['options-toggler']}>
-        <a onClick={collapseHandler}>
-          <BiCustomize /> CUSTOMIZE
-        </a>
+        <button type="button" onClick={collapseHandler}>
+          <BiCustomize />
+          {' '}
+          CUSTOMIZE
+        </button>
         {collapse ? (
           <svg
             stroke="currentColor"
@@ -46,7 +46,7 @@ function Shape() {
               // eslint-disable-next-line max-len
               d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
               clipRule="evenodd"
-            ></path>
+            />
           </svg>
         ) : (
           <svg
@@ -65,16 +65,16 @@ function Shape() {
               // eslint-disable-next-line max-len
               d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
               clipRule="evenodd"
-            ></path>
+            />
           </svg>
         )}
       </div>
       {collapse && (
         <div className={styles['options-body']}>
           <div>
-            <label htmlFor="customRange1" className="form-label">
+            <p>
               Edges:
-            </label>
+            </p>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span>
                 <TbTriangle size={20} />
@@ -93,9 +93,9 @@ function Shape() {
             </div>
           </div>
           <div>
-            <label htmlFor="customRange1" className="form-label">
+            <p>
               Smoothness:
-            </label>
+            </p>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span>
                 <TbCircle size={20} />

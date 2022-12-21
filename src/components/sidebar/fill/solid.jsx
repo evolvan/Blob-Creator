@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFill } from '../../../store/slices/svgSlice';
 import { HexColorPicker } from 'react-colorful';
+import { changeFill } from '../../../store/slices/svgSlice';
 import styles from '../sidebar.module.css';
 
 function Solid() {
@@ -15,12 +15,12 @@ function Solid() {
     <>
       <p>Color:</p>
       <div className="btn-group">
-        <a data-bs-toggle="dropdown">
+        <button type="button" data-bs-toggle="dropdown">
           <div
             className={styles['color-selector']}
             style={{ backgroundColor: svgState.fill }}
-          ></div>
-        </a>
+          />
+        </button>
         <ul className="dropdown-menu">
           <li>
             <div className={styles['color-picker']}>

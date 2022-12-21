@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import svgSlice from './slices/svgSlice';
+import { svgReducer } from './slices/svgSlice';
 
 const store = configureStore({
   reducer: {
-    svg: svgSlice,
+    svg: svgReducer,
   },
 });
 

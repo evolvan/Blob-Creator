@@ -1,11 +1,11 @@
-import styles from './canvas.module.css';
 import { useSelector } from 'react-redux';
+import styles from './canvas.module.css';
 
 function Canvas() {
   const svgState = useSelector((state) => state.svg);
 
   return (
-    <div id={styles['preview']}>
+    <div id={styles.preview}>
       <svg viewBox="0 0 200 200">
         {svgState.type === 'linear gradient' && (
           <linearGradient
@@ -20,8 +20,8 @@ function Canvas() {
           <radialGradient
             id="radial-grad"
             r="100%"
-            cx={`${svgState.cx + '%'}`}
-            cy={`${svgState.cy + '%'}`}
+            cx={`${`${svgState.cx}%`}`}
+            cy={`${`${svgState.cy}%`}`}
           >
             <stop offset="0%" stopColor={svgState.gradientColorOne} />
             <stop offset="100%" stopColor={svgState.gradientColorTwo} />
