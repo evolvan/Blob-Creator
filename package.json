@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "vite",
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "lint--fix": "eslint src/**/*.js src/**/*.jsx --fix",
     "build": "vite build --base=/tools/blob-creator/",
     "preview": "vite preview"
   },
@@ -26,6 +28,12 @@
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@vitejs/plugin-react": "^2.2.0",
+    "eslint": "^8.30.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "prettier": "^2.8.1",
     "sass": "^1.56.2",
     "vite": "^3.2.3"
   }
